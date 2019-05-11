@@ -54,4 +54,26 @@ resource "null_resource" "baseboxed_servers" {
 }
 
 
+resource "null_resource" "nodejs_servers" {
+  # Changes to any instance of the cluster requires re-provisioning
+  triggers {
+    cluster_instance_ids = "${join(",", digitalocean_droplet.web.*.id)}"
+  }
+
+
+  provisioner "local-exec" {
+    command = "$INFRASTRUCTURE_ROOT_DIR/provisioners/base-box/node_box.sh"
+
+    environment {
+      REMOTE_HOST = "${digitalocean_droplet.web.ipv4_address}"
+      REMOTE_USER_INITIAL = "root"
+      REMOTE_PASSWORD_INITIAL = ""
+      BOX_DEPLOY_USER = "ubuntu"
+      BOX_DEPLOY_PASS = ""
+      BOX_PROVIDER = "digitalocean"
+    }
+  }
+
+  depends_on = ["null_resource.baseboxed_servers"]
+}
 

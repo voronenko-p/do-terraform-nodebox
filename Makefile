@@ -1,3 +1,6 @@
+init:
+	gilt overlay
+
 init-terraform-ovh:
 	cd providers/ovh && terraform init
 init-provisioners:

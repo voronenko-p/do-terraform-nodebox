@@ -10,3 +10,6 @@ sudo-password-file
 */**/.terraform
 runtime_inventory
 local_*.sh
+
+provisioners/base-box
+provisioners/node-box

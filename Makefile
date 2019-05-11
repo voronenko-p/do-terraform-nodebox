@@ -1,5 +1,6 @@
 init:
 	gilt overlay
+	cd providers/digitalocean && terraform init
 
 init-terraform-ovh:
 	cd providers/ovh && terraform init

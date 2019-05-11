@@ -62,7 +62,7 @@ resource "null_resource" "nodejs_servers" {
 
 
   provisioner "local-exec" {
-    command = "$INFRASTRUCTURE_ROOT_DIR/provisioners/base-box/node_box.sh"
+    command = "$INFRASTRUCTURE_ROOT_DIR/provisioners/node-box/provision_box.sh"
 
     environment {
       REMOTE_HOST = "${digitalocean_droplet.web.ipv4_address}"

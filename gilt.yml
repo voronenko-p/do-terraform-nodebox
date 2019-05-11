@@ -1,12 +1,12 @@
 # https://gilt.readthedocs.io/en/latest/
   - git: https://github.com/oops-to-devops/node-box.git
     version: master
-    dst: deployment/provisioners/node-box/
+    dst: provisioners/node-box/
     post_commands:
       - make
   - git: https://github.com/oops-to-devops/base-box.git
     version: master
-    dst: deployment/provisioners/base-box/
+    dst: provisioners/base-box/
     post_commands:
       - make
 
